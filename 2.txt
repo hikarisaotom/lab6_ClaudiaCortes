@@ -1,0 +1,3 @@
+hola|2|2|0.
+Holiviris|5|4|Tierra.
+hola|2|2|0.

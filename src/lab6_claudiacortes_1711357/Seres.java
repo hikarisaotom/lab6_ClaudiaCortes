@@ -59,7 +59,7 @@ public class Seres {
 
     @Override
     public String toString() {
-        return "Seres{" + "Nombre_Raza=" + Nombre_Raza + ", Ki=" + Ki + ", Max_anos=" + Max_anos + ", Planeta=" + Planeta + '}';
+        return Nombre_Raza;
     }
     
 }
