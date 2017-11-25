@@ -533,17 +533,9 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         Universo u = new Universo();
         tf_universo.setText(u.Abrir());
-       /** JFileChooser jfc = new JFileChooser();
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos de texto", "txt");//CREAMOS EL FILTRO
-        jfc.setFileFilter(filtro);//Lo agrega por defecto 
-        int seleccion = jfc.showOpenDialog(null);
-        u.creararchivo(jfc.getSelectedFile().getPath());
-        System.out.println(jfc.getSelectedFile().getPath());*/
         u.cargarArchivo();
-        System.out.println("LOS SERES VIVOS DE EL"+u.getSeres_Vivos());
-      // u.cargarArchivo();
-      // u.Abrir();
-      UnivresoActual=u;
+        System.out.println("LOS SERES VIVOS DE EL" + u.getSeres_Vivos());
+        UnivresoActual = u;
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
@@ -580,7 +572,7 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         jd_modificar.show();
         jd_modificar.pack();
-        DefaultComboBoxModel Modelo = (DefaultComboBoxModel) jc_Seres1.getModel();
+        DefaultComboBoxModel Modelo = new DefaultComboBoxModel() ;
         for (int i = 0; i < UnivresoActual.getSeres_Vivos().size(); i++) {
             Modelo.addElement(UnivresoActual.getSeres_Vivos().get(i));
         }
@@ -590,7 +582,7 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         jd_eliminar.show();
         jd_eliminar.pack();
-        DefaultComboBoxModel Modelo = (DefaultComboBoxModel) jc_Seres2.getModel();
+        DefaultComboBoxModel Modelo =new DefaultComboBoxModel() ;
         for (int i = 0; i < UnivresoActual.getSeres_Vivos().size(); i++) {
             Modelo.addElement(UnivresoActual.getSeres_Vivos().get(i));
         }
@@ -599,7 +591,8 @@ public class Principal extends javax.swing.JFrame {
 
     private void jc_Seres1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jc_Seres1ItemStateChanged
         Ser = ((Seres) jc_Seres1.getSelectedItem());
-        Pos = jc_Seres1.getSelectedIndex() - 1;
+        Pos = jc_Seres1.getSelectedIndex();
+        System.out.println("NUM"+Pos);
         try {
             tf_raza1.setText(UnivresoActual.getSeres_Vivos().get(Pos).getNombre_Raza());
             js_ki1.setValue(UnivresoActual.getSeres_Vivos().get(Pos).getMax_anos());
@@ -613,8 +606,8 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jc_Seres1ItemStateChanged
 
     private void jc_Seres2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jc_Seres2ItemStateChanged
-
-        Pos = jc_Seres2.getSelectedIndex() - 1;
+  Pos = jc_Seres2.getSelectedIndex()-1 ;
+        System.out.println("NUM"+Pos);
 
     }//GEN-LAST:event_jc_Seres2ItemStateChanged
 
